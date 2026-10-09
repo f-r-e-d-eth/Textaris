@@ -16,15 +16,15 @@ Open http://127.0.0.1:5010 locally. For public access, place the app behind Cadd
 
 Messages are stored as UTC ISO timestamps in `instance/messages.sqlite3`, which is ignored by Git. Override the location with `TEXTARIS_DB=/path/to/messages.sqlite3`.
 
-Example Caddy route (add inside your existing site block, before a catch-all handler):
+Recommended Caddy configuration for a separate subdomain (add as a separate site block):
 
 ```caddyfile
-handle /text* {
+text.f-r-e-d.eu {
     reverse_proxy 127.0.0.1:5010
 }
 ```
 
-**Important:** This example route works when Textaris is mounted at the root of a dedicated host, but not reliably at a `/text` prefix: the app uses root-relative API URLs. Prefer a dedicated host like `text.f-r-e-d.eu`, or use a rewrite/proxy scheme that also handles `/api/messages`. Keep your existing Portaris `text` command as a link to that host.
+Create a DNS record for `text.f-r-e-d.eu` pointing to your VPS. This avoids conflicts with your existing Portaris Caddy routes. In Portaris, map the command `text` to `https://text.f-r-e-d.eu`.
 
 ## V1 limitations
 
