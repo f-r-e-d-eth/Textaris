@@ -28,6 +28,9 @@ body { margin: 0; min-height: 100vh; display: grid; place-items: center;
   background: #090e19; color: #e6eefc; font-family: system-ui, sans-serif; }
 main { width: min(94vw, 620px); }
 h1 { font-size: 1.2rem; font-weight: 500; color: #69d8ff; }
+.logout { position: fixed; top: 18px; right: 22px; color: #95aabd;
+  text-decoration: none; font-size: .85rem; }
+.logout:hover { color: #69d8ff; }
 textarea { width: 100%; min-height: 140px; padding: 16px; resize: vertical;
   border: 1px solid #38516b; border-radius: 10px; background: #111c2e;
   color: inherit; font: 1rem/1.5 system-ui, sans-serif; outline: none; }
@@ -36,6 +39,7 @@ p { min-height: 1.5em; color: #95aabd; font-size: .85rem; }
 </style>
 </head>
 <body>
+<a class="logout" href="/_gate/logout">Log out</a>
 <main>
 <h1>Textaris</h1>
 <form id="form">
